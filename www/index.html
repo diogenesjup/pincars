@@ -1,0 +1,271 @@
+<!--
+#
+# PIN CAR's TECNOLOGIA
+#
+# DIOGENES OLIVEIRA DOS SANTOS JUNIOR
+# WWW.DIOGENESJUNIOR.COM.BR
+# CONTATO@DIOGENESJUNIOR.COM.BR
+#
+-->
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+<title>PIN CAR's Tecnologia</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+<meta name="theme-color" content="#ff3131">
+
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" media="all" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css?v=10" />
+<link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
+<!-- ICONES -->
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+<!-- ANIMATE -->
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+<!-- DROPDOWN -->
+<link href="assets/css/bootstrap-dropdownhover.css" rel="stylesheet">
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;500;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<!--
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <!-- HEADER -->
+    <header>
+        <div class="row">
+          <!-- LOGO -->
+          <div class="col-9 logo">
+             <a href="javascript:void(0)" title="PIN CAR's">
+                <img src="assets/images/logo.png" alt="PIN CAR's LOGO" />
+             </a>
+          </div>
+          <!-- LOGO -->
+          <!-- MENU BAR -->
+          <div class="col-3 menu-bar-toggle">
+             <a href="javascript:void(0)" onclick="app.abrirFecharMenuCliente();" title="Abrir o menu">
+               <img src="assets/images/menu-bar.svg" alt="Abrir o menu">
+             </a>
+          </div>
+          <!-- MENU BAR -->
+        </div>
+    </header>
+    <!-- HEADER -->
+
+
+    <!-- CORPO -->
+    <section id="content">
+        <p class="text-center">Carregando</p>
+    </section>
+    <!-- CORPO -->
+
+
+    <!-- RODAPE / NAVEGACAO -->
+    <footer>
+        <div class="row">
+            <div class="col menu-1">
+                <a href="javascript:void(0)" title="Home" onclick="app.viewPrincipalProfissional()">
+                    <img src="assets/images/home.svg" alt="Home" />
+                    Home
+                </a>
+            </div>
+            <div class="col menu-2">
+                <a href="javascript:void(0)" title="Serviços" onclick="app.servicosDesbloqueadosProfissional()">
+                    <img src="assets/images/simbolo.png" alt="Serviços" />
+                    Serviços
+                </a>
+            </div>
+            <div class="col menu-3">
+                <a href="javascript:void(0)" title="Alertas" onclick="app.alertasProfissionais()">
+                    <img src="assets/images/alertas.svg" alt="Alertas" />
+                    Alertas
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- RODAPE / NAVEGACAO -->
+
+
+
+    <!-- AVISOS -->
+    <div class="modal-avisos" id="swipeAviso">
+      <div class="aviso">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+    <!-- AVISOS -->
+
+    <!-- CONFIRMAÇÕES DO USUÁRIO (PROMPT) -->
+    <div class="modal-confirmacao" id="swipemeConfirmacao">
+      <div class="confirmacao">
+        <h3></h3>
+        <p id="confirmacaoInstrucao"></p>
+        <div class="row">
+          
+          <div class="col">
+            <button type="button" class="btn btn-primary" id="acaoConfirmacao">Confirmar</button>
+          </div>
+          <div class="col">
+             <button type="button" onclick="fecharConfirmacao();" class="btn btn-default">Cancelar</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- CONFIRMAÇÕES DO USUÁRIO (PROMPT) -->
+
+
+    <!-- MODAL CAMERA -->
+    <div class="modal-camera" id="swipemeCamera">
+      <div class="confirmacao">
+
+        <div id="areaCamera" style="position: relative; width: 100%; height: 300px; background: #666;">
+
+          <button id="trocaCamera" onclick="trocarCamera()">
+             <img src="assets/images/8674472_ic_fluent_camera_switch_regular_icon.svg" alt="" />
+          </button>
+
+        </div>
+    <p>&nbsp;</p>
+        
+        
+        <div class="row">
+          <div class="col-12">
+            
+            <button type="button" onclick="trocarCamera()" class="btn btn-default" style="margin-bottom:12px;">Trocar Camêra</button>
+          </div>
+          <div class="col-12">
+             <button type="button" onclick="desligarCamera();" class="btn btn-default">Cancelar</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- MODAL CAMERA -->
+
+    <!-- INPUT FLUTUANTE -->
+    <div class="input-flutuante-acessibilidade">
+      <form id="form-input-flutuante" onsubmit="validarFormularioFlutuante(event)">
+          <div class="form-group">
+              <label>Nome do campo</label>
+              <input type="text" name="fieldInputFlutuante" id="fieldInputFlutuante" class="form-control" placeholder="Digite nesse campo" required />
+              <button class="btn btn-default" type="submit">ok</button>
+          </div>
+      </form>
+    </div>
+    <!-- INPUT FLUTUANTE -->
+
+    
+
+
+    <!-- MENU ADICIONAL CLIENTE -->
+        <div class="menu-adicional-cliente">
+          
+              <!-- FECHAR MENU LOJA -->
+              <div class="fechar-menu-cliente">
+                <a href="javascript:void(0)" title="Fechar menu" onclick="app.abrirFecharMenuCliente();">
+                   <img src="assets/images/fechar.svg" alt="Fechar menu" style="filter: grayscale(1);opacity: 0.5;"> 
+                </a>
+              </div>
+              <!-- FECHAR MENU LOJA -->
+              
+              <!-- NAVEGAÇÃO PRINCIPAL -->
+              <nav>
+                <ul>
+
+                  <li>
+                      <a href="javascript:void(0)" title="Voltar ao início" onclick="app.opcoesCarretamentoPerfilCliente(); app.abrirFecharMenuCliente();">
+                        Voltar ao início
+                      </a>
+                  </li>
+                  
+                  <li>
+                      <a href="javascript:void(0)" title="Meu Perfil" onclick="app.abrirFecharMenuCliente();">
+                        Meu Perfil
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="javascript:void(0)" title="Histórico" onclick="app.abrirFecharMenuCliente(); app.views.historicoConsultas();">
+                        Histórico
+                      </a>
+                  </li>
+
+                  
+                  <li>
+                      <a href="javascript:void(0)" title="Dúvidas e suporte" onclick="app.duvidasESuporte(); app.abrirFecharMenuCliente();">
+                        Dúvidas e suporte
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="javascript:void(0)" title="Configurações" onclick="app.abrirFecharMenuCliente();">
+                        Configurações
+                      </a>
+                  </li>
+
+                  <li>
+                    <a href="javascript:void(0)" onclick="app.abrirFecharMenuCliente(); confirmacao('Tem certeza que deseja sair?','Você será deslogado','app.logoff()','Sair')" title="Sair">
+                    Sair</a>
+                  </li>
+
+                </ul>
+              </nav>
+              <!-- NAVEGAÇÃO PRINCIPAL -->
+
+        </div>
+        <!-- MENU ADICIONAL CLIENTE -->
+
+
+
+        
+
+
+
+
+    <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/tether.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.form.js"></script>
+
+    <!-- TESSERACT -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+
+    <!-- TOKEN GEREBCUABET -->
+
+    <!-- PRODUCAO 
+    <script type='text/javascript'>var s=document.createElement('script');s.type='text/javascript';var v=parseInt(Math.random()*1000000);s.src='https://api.gerencianet.com.br/v1/cdn/caa3b3256895d3286ff9bac92782f2e6/'+v;s.async=false;s.id='caa3b3256895d3286ff9bac92782f2e6';if(!document.getElementById('caa3b3256895d3286ff9bac92782f2e6')){document.getElementsByTagName('head')[0].appendChild(s);};$gn={validForm:true,processed:false,done:{},ready:function(fn){$gn.done=fn;}};</script>
+  -->
+
+  <script type='text/javascript'>var s=document.createElement('script');s.type='text/javascript';var v=parseInt(Math.random()*1000000);s.src='https://sandbox.gerencianet.com.br/v1/cdn/caa3b3256895d3286ff9bac92782f2e6/'+v;s.async=false;s.id='caa3b3256895d3286ff9bac92782f2e6';if(!document.getElementById('caa3b3256895d3286ff9bac92782f2e6')){document.getElementsByTagName('head')[0].appendChild(s);};$gn={validForm:true,processed:false,done:{},ready:function(fn){$gn.done=fn;}};</script>
+
+  
+
+
+
+    <script src="assets/js/dist/jquery.inputmask.bundle.js"></script>
+    <script src="assets/js/dist/inputmask/phone-codes/phone.js"></script>
+
+    <script type="text/javascript" src="commom/commom.js"></script> <!-- STANCIAS DE PLUGINS EXTERNOS -->
+    <script src="controllers/Controllers.js"></script> <!-- CONTROLLEERS GUARDAM AS FUNCOES GERAIS -->
+    <script src="models/Models.js"></script> <!-- MODELOS GUARDAM OS DADOS -->
+    <script src="helpers/Helpers.js"></script> <!-- HELPERS GUARDAM FUNCOES DE VALIDACAO OU CONVERSAO -->
+    <script src="views/Views.js"></script> <!-- HTML'S -->
+
+    <script type="text/javascript" src="app.js"></script> <!-- SCRIPT GERAL DA APLICACAO -->
+    
+</body>
+</html>

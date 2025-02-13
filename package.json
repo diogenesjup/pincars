@@ -1,0 +1,36 @@
+{
+  "name": "com.pincars.pincars",
+  "version": "1.0.0",
+  "description": "Pin Car's",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogenesjup/pincars.git"
+  },
+  "keywords": [
+    "pincars"
+  ],
+  "author": "Pin Cars Tecnologia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diogenesjup/pincars/issues"
+  },
+  "homepage": "https://github.com/diogenesjup/pincars#readme",
+  "devDependencies": {
+    "cordova-android": "^13.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-ionic-webview": {}
+    }
+  }
+}
