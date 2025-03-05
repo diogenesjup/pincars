@@ -55,6 +55,7 @@
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
+    <plugin name="cordova-plugin-x-socialsharing" />
    
 
     <preference name="WKWebViewOnly" value="true" />

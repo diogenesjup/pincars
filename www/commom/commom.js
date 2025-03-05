@@ -46,6 +46,241 @@ function stopAnimationPlaca() {
 
 
 
+function obterLogoMarca(marca) {
+  // Normaliza o nome da marca para evitar problemas com maiúsculas/minúsculas e caracteres especiais
+  const marcaNormalizada = marca.trim().toUpperCase();
+  
+  // Caminho base para os seus logos (ajuste conforme sua estrutura de pastas)
+  const caminhoBase = "assets/images/logos/";
+  
+  // Dicionário de marcas e seus respectivos arquivos de logo
+  const logosPorMarca = {
+    // Marcas nacionais mais comuns
+    "CHEVROLET": "Chevrolet-logo-5.jpg",
+    "GM": "Chevrolet-logo-5.jpg",
+    "VOLKSWAGEN": "volkswagen-logo-2013.jpg",
+    "FIAT": "Fiat_logo.svg.png",
+    "FORD": "Ford_logo.svg.png",
+    "TOYOTA": "toyota-1596082_1280.webp",
+    "HONDA": "Honda_Logo.svg",
+    "HYUNDAI": "Logotipo-da-Hyundai-8.jpg",
+    "RENAULT": "20498786-renault-simbolo-marca-carro-logotipo-preto-projeto-frances-automovel-ilustracao-gratis-vetor.jpg",
+    "NISSAN": "Nissan_2020_logo.svg",
+    "MITSUBISHI": "Mitsubishi_motors_new_logo.svg.png",
+    "BMW": "images.jpg",
+    "MERCEDES-BENZ": "images.png",
+    "MERCEDES": "images.png",
+    "AUDI": "Audi_logo_detail.svg.png",
+    "JEEP": "jeep-9.svg",
+    "CITROEN": "logo_citroen_960_640.jpg",
+    "PEUGEOT": "Peugeot-Logo-2010.avif",
+    "BYD": "BYD_Auto_2022_logo.svg",
+
+    /*
+    "KIA": "kia.png",
+    "VOLVO": "volvo.png",
+    "LAND ROVER": "landrover.png",
+    "SUBARU": "subaru.png",
+    "SUZUKI": "suzuki.png",
+    "JAC": "jac.png",
+    "CHERY": "chery.png",
+    "TROLLER": "troller.png",
+    "RAM": "ram.png",
+    "PORSCHE": "porsche.png",
+    "FERRARI": "ferrari.png",
+    "LAMBORGHINI": "lamborghini.png",
+    "MASERATI": "maserati.png",
+    "LEXUS": "lexus.png",
+    "JAGUAR": "jaguar.png",
+    "MINI": "mini.png",
+    "DODGE": "dodge.png",
+    "CAOA CHERY": "caoa_chery.png",
+    
+    "LIFAN": "lifan.png",
+    "MAHINDRA": "mahindra.png",
+    "BUGATTI": "bugatti.png",
+    "BUGRE": "bugre.png",
+    "ALFA ROMEO": "alfa_romeo.png",
+    "ASTON MARTIN": "aston_martin.png",
+    "ACURA": "acura.png",
+    "AGRALE": "agrale.png",
+    "BENTLEY": "bentley.png",
+    "CADILLAC": "cadillac.png",
+    "CHRYSLER": "chrysler.png",
+    "DAEWOO": "daewoo.png",
+    "DAIHATSU": "daihatsu.png",
+    "DFSK": "dfsk.png",
+    "EFFA": "effa.png",
+    "GEELY": "geely.png",
+    "GMC": "gmc.png",
+    "GREAT WALL": "great_wall.png",
+    "HAFEI": "hafei.png",
+    "ISUZU": "isuzu.png",
+    "IVECO": "iveco.png",
+    "JINBEI": "jinbei.png",
+    "LADA": "lada.png",
+    "LOTUS": "lotus.png",
+    "MCLAREN": "mclaren.png",
+    "MG": "mg.png",
+    "MORGAN": "morgan.png",
+    "ROLLS-ROYCE": "rolls_royce.png",
+    "SEAT": "seat.png",
+    "SMART": "smart.png",
+    "SSANGYONG": "ssangyong.png",
+    "TESLA": "tesla.png"
+    */
+  };
+
+  // Verifica se a marca está no dicionário
+  if (logosPorMarca[marcaNormalizada]) {
+    return caminhoBase + logosPorMarca[marcaNormalizada];
+  }
+  
+  // Se não encontrar a marca específica, retorna um logo genérico
+  return caminhoBase + "generic_car.jpg";
+}
+
+// Função para verificar se o logo da API é válido
+function logoEhValido(logoUrl) {
+  // Verifica se a URL do logo existe e não está vazia
+  return false;
+}
+
+
+
+
+function compartilharComoImagem() {
+  // Seleciona a div que queremos converter
+  const elemento = document.querySelector('.resumo-feedback-carro');
+  
+  // Verifica se o elemento existe
+  if (!elemento) {
+    console.error('Elemento não encontrado');
+    alert('Não foi possível encontrar os dados do veículo para compartilhar.');
+    return;
+  }
+  
+  // Aplica alguns estilos temporários para melhorar a aparência da imagem
+  const estiloOriginal = elemento.style.cssText;
+  elemento.style.padding = '15px';
+  elemento.style.borderRadius = '10px';
+  elemento.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+  elemento.style.backgroundColor = '#ffffff';
+  
+  // Mostra indicador de progresso
+  const mensagem = document.createElement('div');
+  mensagem.innerText = 'Gerando imagem...';
+  mensagem.style.position = 'fixed';
+  mensagem.style.top = '50%';
+  mensagem.style.left = '50%';
+  mensagem.style.transform = 'translate(-50%, -50%)';
+  mensagem.style.padding = '10px 20px';
+  mensagem.style.backgroundColor = 'rgba(0,0,0,0.7)';
+  mensagem.style.color = 'white';
+  mensagem.style.borderRadius = '5px';
+  mensagem.style.zIndex = '9999';
+  document.body.appendChild(mensagem);
+  
+  // Usa html2canvas para converter a div em imagem
+  html2canvas(elemento, {
+    scale: 2, // Aumenta a qualidade da imagem
+    backgroundColor: '#ffffff',
+    logging: false,
+    useCORS: true // Permite imagens de outros domínios
+  }).then(function(canvas) {
+    // Remove o indicador de progresso
+    document.body.removeChild(mensagem);
+    
+    // Restaura o estilo original
+    elemento.style.cssText = estiloOriginal;
+    
+    // Converte o canvas para uma imagem base64
+    canvas.toBlob(function(blob) {
+      // Cria um arquivo a partir do blob
+      const file = new File([blob], 'situacao-legal-veiculo.png', { type: 'image/png' });
+      const base64Image = canvas.toDataURL('image/png').replace('data:image/png;base64,', '');
+      const objectUrl = URL.createObjectURL(blob);
+      
+      // Verifica as opções de compartilhamento disponíveis e escolhe a melhor
+      const isCordova = !!(window.cordova);
+      const hasSocialSharingPlugin = !!(isCordova && window.plugins && window.plugins.socialsharing);
+      const hasWebShareAPI = !!(navigator.share && navigator.canShare);
+      
+      // Tenta compartilhar usando a melhor opção disponível
+      if (hasSocialSharingPlugin) {
+        // Opção 1: Plugin SocialSharing do Cordova
+        try {
+          window.plugins.socialsharing.share(
+            'Confira os detalhes deste veículo:', // mensagem
+            'Situação Legal do Veículo', // assunto
+            base64Image, // imagem
+            null, // link
+            function() { console.log('Compartilhamento bem-sucedido'); },
+            function(error) { 
+              console.error('Erro ao compartilhar:', error);
+              // Se falhar o compartilhamento via plugin, tenta baixar
+              downloadImagem(blob);
+            }
+          );
+        } catch (error) {
+          console.error('Erro ao usar SocialSharing:', error);
+          // Se der erro no plugin, tenta baixar
+          downloadImagem(blob);
+        }
+      } else if (hasWebShareAPI && navigator.canShare({ files: [file] })) {
+        // Opção 2: Web Share API moderna (com suporte a arquivos)
+        navigator.share({
+          title: 'Situação Legal do Veículo',
+          text: 'Confira os detalhes deste veículo:',
+          files: [file]
+        })
+        .then(() => console.log('Compartilhamento bem-sucedido via Web Share API'))
+        .catch((error) => {
+          console.error('Erro ao compartilhar via Web Share API:', error);
+          // Se falhar o compartilhamento via API, tenta baixar
+          downloadImagem(blob);
+        });
+      } else {
+        // Opção 3: Fallback para download direto
+        downloadImagem(blob);
+      }
+    }, 'image/png', 0.95); // Qualidade 0.95 (95%)
+  }).catch(function(error) {
+    // Remove o indicador de progresso em caso de erro
+    if (document.body.contains(mensagem)) {
+      document.body.removeChild(mensagem);
+    }
+    
+    console.error('Erro ao criar a imagem:', error);
+    alert('Ocorreu um erro ao gerar a imagem. Por favor, tente novamente.');
+  });
+  
+}
+
+// Função auxiliar para fazer o download da imagem como fallback
+function downloadImagem(blob) {
+  try {
+    // Cria um link para download da imagem
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'situacao-legal-veiculo.png';
+    document.body.appendChild(link); // Necessário em alguns navegadores
+    link.click();
+    setTimeout(function() {
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href); // Libera memória
+    }, 100);
+    
+    // Notifica o usuário
+    setTimeout(function() {
+      alert('A imagem foi salva em seus downloads.');
+    }, 500);
+  } catch (error) {
+    console.error('Falha ao fazer download da imagem:', error);
+    alert('Não foi possível salvar a imagem. Verifique as permissões do aplicativo.');
+  }
+
+}
 
 
 

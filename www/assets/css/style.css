@@ -914,7 +914,7 @@ section#content .view-3{
     background: #fff;
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.09));
     border-radius: 20px;
-    margin-top: 50px;
+    margin-top: 18px;
     width: 100%;
     margin-bottom: 50px;
 }
@@ -2331,23 +2331,22 @@ p.apoio-servico{
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 .placa {
   margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 135px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 60px;
-  background: #dee1e7;
-  font-family: "Nova Square", serif;
-  border: 5px solid #000;
-  border-radius: 10px;
-  font-weight: 900;
-  position: relative;
-  padding-top: 25px;
-
-  white-space: nowrap;
-  overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 135px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 56px;
+    background: #dee1e7;
+    font-family: Arial;
+    border: 5px solid #000;
+    border-radius: 10px;
+    font-weight: 900;
+    position: relative;
+    padding-top: 25px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .placa:after {
   content: 'BRASIL';
@@ -2387,7 +2386,7 @@ p.apoio-servico{
 }
 .text {
   line-height: 1.8;
-  letter-spacing: 8px;
+  letter-spacing: -2px;
 }
 .cidade-text {
   width: 25px;
@@ -2398,3 +2397,69 @@ p.apoio-servico{
   font-size: 7px;
 }
 
+.form-control::placeholder {
+  color: black;
+  opacity: 1; /* Para Firefox */
+}
+
+.input-group.busca-principal .form-control{
+  text-transform: uppercase !important;
+    font-size: 18px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+}
+
+.resumo-feedback-carro{
+  position: relative;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-size: 14px;
+    box-shadow: 2px 2px 3px rgba(000, 000, 000, 0.10);
+}
+
+.resumo-feedback-carro h1{
+  text-align: center;
+    position: relative;
+    display: block;
+    font-weight: bold;
+    background: #4CAF50;
+    color: #fff;
+    font-size: 25px;
+    padding: 5px;
+    padding-top: 14px;
+    padding-bottom: 18px;
+    margin-bottom: 12px;
+}
+
+.resumo-feedback-carro p{
+  text-align: center;
+    color: #747474;
+    font-size: 12px;
+    margin-top: 13px;
+    display: block;
+}
+
+.resumo-feedback-carro div{
+  padding: 0 !important;
+}
+
+.mini-share{
+    text-align: center;
+    text-align: center;
+    position: relative;
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.mini-share a,
+.mini-share a:hover{
+  color: #666;
+  text-decoration: underline;
+  font-size: 13px;
+}

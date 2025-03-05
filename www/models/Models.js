@@ -416,8 +416,49 @@ class Models{
         jQuery("#insertResultados").html(``);
 
         jQuery("#insertResultados").append(`
-          
-                                          <img src="${dados.dados.dados.response.logo}" style="display: block;margin-right: auto;width: 140px;margin-bottom: -18px;">
+
+                                          <!-- FEEDBACK CARRO -->
+                                          <div class="resumo-feedback-carro">
+                                             <h1>SITUAÇÃO LEGAL</h1>
+                                             <div class="row">
+                                                
+                                                <div class="col-7">
+                                                    Placa: <b>${dados.dados.dados.response.placa}</b><br>
+                                                    Chassi: ${dados.dados.dados.response.chassi}<br>
+                                                    ${dados.dados.dados.response.MARCA}<br>
+                                                    Cor: ${dados.dados.dados.response.cor}
+                                                </div>
+
+                                                <div class="col-5">
+                                                    ${dados.dados.dados.response.municipio}/${dados.dados.dados.response.uf}<br>
+                                                    ${dados.dados.dados.response.ano}/${dados.dados.dados.response.ano_modelo}
+                                                </div>
+
+                                                <div class="col-12">
+                                                    ${dados.dados.dados.response.MODELO}
+                                                </div>
+
+                                                <div class="col-12">
+                                                  <p>
+                                                     Informações vindas do aplicativo <strong>PINCAR's</strong>
+                                                  </p>
+                                                </div>
+
+                                             </div> 
+                                          </div>
+                                          <!-- FEEDBACK CARRO -->
+
+                                          <!-- SHARE -->
+                                          <div class="mini-share">
+                                              <a href="javascript:compartilharComoImagem()">
+                                                  compartilhar
+                                              </a>
+                                          </div>
+                                          <!-- SHARE -->
+
+                                          <img 
+                                              src="${logoEhValido(dados.dados.dados.response.logo) ? dados.dados.dados.response.logo : obterLogoMarca(dados.dados.dados.response.MARCA)}" 
+                                              style="display: block;margin-right: auto;width: 100px;margin-bottom: 20px;">
                                           <table>
                                           <tbody>
                                             <tr>
@@ -435,6 +476,10 @@ class Models{
                                             <tr>
                                               <td style="font-weight:bold;padding:5px;">ANO</td>
                                               <td style="padding:5px;">${dados.dados.dados.response.ano}</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="font-weight:bold;padding:5px;">ANO MODELO</td>
+                                              <td style="padding:5px;">${dados.dados.dados.response.ano_modelo}</td>
                                             </tr>
                                             <tr>
                                               <td style="font-weight:bold;padding:5px;">CHASSI</td>
